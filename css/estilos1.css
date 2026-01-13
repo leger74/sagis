@@ -1,0 +1,408 @@
+/* =======================================================
+   1. ESTILOS GENERALES Y CORRECCIÓN DE TEXTO
+   ======================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Mejora de legibilidad: Evita huecos blancos en móvil */
+p {
+    line-height: 1.6;
+    text-align: left; /* Por defecto a la izquierda */
+    hyphens: auto;    /* Divide palabras con guiones si es necesario */
+    word-break: break-word;
+}
+
+@media (min-width: 769px) {
+    p { text-align: justify; } /* Solo justifica en pantallas grandes */
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow-x: hidden; /* Evita scroll lateral */
+}
+
+/* =======================================================
+   2. HEADER Y MENÚ (REPARADO PARA MÓVIL)
+   ======================================================= */
+header {
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    z-index: 1000;
+}
+
+/* 1. Aseguramos que el nav-links sea flexible y centrado */
+.nav-links {
+    display: flex;
+    justify-content: center; /* Centra los items horizontalmente */
+    align-items: center;     /* Centra los items verticalmente */
+    gap: 2rem;               /* Espacio entre letras */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Forzamos el tamaño de la letra para que no sea pequeña */
+.nav-links a {
+    text-decoration: none;
+    color: white; /* O el color que uses */
+    font-size: 1.1rem !important; /* El !important asegura que nadie lo pise */
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+/* 3. Centrar el contenedor del menú */
+.menu {
+    display: flex;
+    justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra toda la barra en la pantalla */
+    padding: 20px;
+    width: 90%;
+}
+
+
+
+
+
+.logo1 {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    margin-right: 200px;
+}
+
+
+/*INDEX MENU*/
+.index-menu {
+    justify-content: center;
+}
+
+
+
+/* Submenú Dropdown */
+.dropdown { position: relative; }
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -200px;
+    background-color: rgba(18, 2, 2, 0.95);
+    padding: 15px;
+    list-style: none;
+    z-index: 2000;
+    border-radius: 5px;
+}
+
+.dropdown:hover .submenu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    min-width: 300px;
+}
+
+.submenu li a { font-size: 0.9rem; white-space: nowrap; }
+
+/* Menú hamburguesa móvil */
+#menu, .menu label { display: none; }
+
+@media (max-width: 768px) {
+    /* 1. Botón hamburguesa */
+    .menu label { 
+        display: block; 
+        cursor: pointer;
+        z-index: 2001;
+    }
+
+    /* 2. Contenedor principal de los links (Inicio, Viajes, Contacto) */
+    .nav-links {
+        display: none; /* Oculto por defecto */
+        flex-direction: column; /* Alineación vertical para los 3 links principales */
+        position: absolute;
+        top: 80px; /* Ajusta según el alto de tu header */
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 20px 0;
+        text-align: center;
+        gap: 15px;
+    }
+
+    /* Mostrar menú al activar checkbox */
+    #menu:checked ~ nav .nav-links { 
+        display: flex; 
+    }
+
+    /* 3. El Dropdown de "Viajes" */
+    .dropdown {
+        width: 100%;
+    }
+
+    /* 4. EL SUBMENÚ (La cuadrícula de 3x2) */
+    /* Forzamos que se muestre siempre o al hacer tap en "Viajes" */
+    .dropdown:hover .submenu, 
+    .dropdown:active .submenu { 
+        display: grid !important; /* Forzamos Grid */
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+        gap: 10px;
+        padding: 15px;
+        position: static; /* Lo metemos en el flujo del menú, no flota */
+        background: rgba(255, 255, 255, 0.05); /* Un fondo sutil para diferenciarlo */
+        margin-top: 10px;
+        width: 100%;
+        left: 0;
+    }
+
+    /* Ajuste de los links del submenú para que quepan bien */
+    .submenu li a {
+        font-size: 0.75rem; /* Letra un poco más pequeña para que no se amontone */
+        padding: 5px;
+        display: block;
+        border: 1px solid rgba(255,255,255,0.1); /* Opcional: un recuadro suave */
+        border-radius: 4px;
+    }
+
+    /* Los links principales (Inicio y Contacto) se mantienen grandes */
+    .nav-links > li > a {
+        font-size: 1.2rem;
+        display: block;
+        width: 100%;
+    }
+}
+
+/* =======================================================
+   3. BLOQUES DE INFORMACIÓN (PATAGONIA, CANARIAS, ETC.)
+   ======================================================= */
+.bloque-info, .bloque-desierto {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.95); /* Fondo sólido claro para lectura */
+    border-radius: 15px;
+    color: #333;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.bloque-info.inverso { flex-direction: row-reverse; }
+
+.bloque-info .texto, .contenido-desierto { flex: 1; min-width: 300px; }
+
+.bloque-info h2, .bloque-desierto h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #d84315;
+}
+
+.galeria-fotos {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.galeria-fotos img, .fotos-desierto img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .bloque-info, .bloque-desierto {
+        padding: 20px;
+        margin: 10px;
+    }
+    .bloque-info .texto, .contenido-desierto { min-width: 100%; }
+}
+
+/* =======================================================
+   4. SECCIÓN ITINERARIO (DETALLE-VIAJE) - CORREGIDO
+   ======================================================= */
+.detalle-viaje {
+    padding: 60px 20px;
+    width: 100%;
+}
+
+.contenedor-itinerario {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.grid-detalles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en PC */
+    gap: 25px;
+}
+
+.tarjeta-info {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+@media (max-width: 850px) {
+    .grid-detalles {
+        grid-template-columns: 1fr; /* 1 columna en móvil */
+    }
+    .itinerario-header h2 { font-size: 1.8rem; }
+}
+
+/* =======================================================
+   5. PÁGINA DE CONTACTO (REPARACIÓN CRÍTICA)
+   ======================================================= */
+.contacto-full-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 40px 20px;
+}
+
+.card-contacto-compacta {
+    /* Eliminado absolute y left negativo */
+    position: relative; 
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 25px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+}
+
+.logo-contacto-img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.btn-wa-final {
+    display: inline-flex;
+    align-items: center;
+    background-color: #25d366;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* =======================================================
+   6. GRID DE INICIO (INDEX)
+   ======================================================= */
+
+   /* Asegúrate de que la ruta tenga los dos puntos ../ si el CSS está en la carpeta /css/ */
+.index-color {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                      url('../imagenes/imagenes/Perito_Moreno_Glacier_2023.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+
+
+.grid-viajes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.card-viaje {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.img-container { height: 200px; }
+.img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+.card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+.btn-card {
+    margin-top: auto;
+    background: #424fc2;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+@media (max-width: 900px) {
+    .grid-viajes { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+    .grid-viajes { grid-template-columns: 1fr; }
+}
+
+/* =======================================================
+   7. FOOTER
+   ======================================================= */
+footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 60px 5% 20px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-col h3 { color: #d84315; margin-bottom: 20px; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links li a { color: #ccc; text-decoration: none; }
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 0.8rem;
+}
