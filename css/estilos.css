@@ -1,0 +1,1441 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/*Estilos generales*/
+
+body {
+  
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 100%; /* Cambiado de 90% para que el footer ocupe todo el ancho */
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Esto hace que la foto se quede quieta */
+    background-color: #F1E788; 
+
+}
+
+
+main {
+    
+    grid-area: main1;
+    flex: 1;
+    display: block;
+    width: 100%;
+    margin: 30px auto;
+
+}
+
+
+
+/*HEADER*/
+
+header{
+   
+    grid-area: header1;
+    min-height: 15vh;
+    display: flex;
+    min-width: 100%;
+    margin: 0 auto;
+    flex-direction: column;
+    position: relative;
+        background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+    width: 100%;
+    /*position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;*/
+}
+    
+
+
+
+
+
+/* --- CONTROL DE ALTURA SOLO PARA EL INDEX (Escritorio) --- */.header-slideshow {
+    min-height: 70vh; /* Ajusta este valor (70vh, 80vh, 100vh) según prefieras */
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #000;
+}
+
+/* Aseguramos que las imágenes ocupen todo ese espacio definido */
+.header-slideshow 
+{ background: url(../imagenes/imagenes/IMG-20230211-WA0071.jpg) center/cover no-repeat ;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+header .marruecos {
+    height: 15vh;
+    padding-bottom: 20px;
+    background-color: #531717;
+}
+
+
+.menu {
+    display: flex;
+    gap: 50px;
+    margin: 0 auto;
+    align-items: center;
+    z-index: 10;
+    width: 100%;
+    padding: 20px;
+    background-color: #000;
+    justify-content: center;
+   
+ 
+  
+ 
+}
+
+.logo1{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color:white;
+
+
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin-left: 10px;
+   
+
+  
+ 
+}
+
+.nav-links li {
+    font-size: 30px;
+  
+    
+}
+
+.nav-links li a {
+    text-decoration: none;
+     padding: 10px;
+     color:white;
+     font-weight: bold;
+
+    
+}
+
+.nav-links li a:hover {
+    color: orange;
+    background-color: white;
+}
+
+.menu #menu {
+    display: none;
+}
+
+.menu label {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    display: none;
+ 
+}
+
+
+/* Asegura que el menú padre sea la referencia */
+.nav-links li {
+    position: relative;
+    display: inline-block; /* Para que se mantengan en línea */
+}
+.destinos-btn {
+    cursor: pointer;
+    color: white; /* Asegúrate de poner el color que usas en tus otros links */
+}
+
+.dropdown {
+    position: relative;
+}
+.menu{position: relative;}
+
+/* Estilo para el submenú oculto */
+.submenu {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 100%;     /* Aparece justo debajo del link "Viajes" */
+  
+    background-color: #333; /* Color de fondo del submenú */
+    min-width: 180px;
+    padding: 10px;
+    list-style: none;
+    z-index: 1000;
+}
+
+/* Mostrar el submenú al pasar el ratón por "Viajes" */
+/* Modificación para el submenú en dos columnas */
+/* 1. LO QUE NO CAMBIA (Color, bordes, links) */
+.submenu {
+    display: none; /* Se oculta siempre al inicio */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(18, 2, 2, 0.9); /* El color que te gustaba */
+    border-radius: 5px;
+    padding: 15px;
+    list-style: none;
+    z-index: 1000;
+}
+
+.submenu li a {
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* 2. EN ORDENADOR (Flex) */
+@media (min-width: 769px) {
+    .dropdown:hover .submenu {
+        display: grid;      /* Flex en ordenador */
+         /* Para que se divida en filas */
+         grid-template-columns: 1fr 1fr 1fr;
+        flex-wrap: wrap;
+        margin: 10px -350px;      /* Ancho del cuadro */
+        gap: 30px;
+    }
+    .submenu li {
+        flex: 0 0 80%;      /* Esto crea las 2 columnas en modo Flex */
+    }
+}
+
+/* 3. EN MÓVIL (Grid) */
+@media (max-width: 768px) {
+    .dropdown:hover .submenu {
+        display: grid;              /* Grid en móvil */
+        grid-template-columns: 1fr 1fr; /* 2 columnas exactas */
+        min-width: 280px;
+        position: absolute;           /* Para que no flote raro en el menú hamburguesa */
+        left: -100px;
+        gap: 10px;
+    }
+    .submenu li {
+        width: 100%;
+    }
+}
+
+/* 4. EL HOVER (Aparecer al pasar el ratón) */
+.dropdown:hover .submenu {
+    /* Esta línea es necesaria para que se muestre en general */
+}
+
+/* Color al pasar el ratón por encima de los destinos */
+.submenu li a:hover {
+    background-color: #555;
+}
+
+
+header.marruecos,
+header .isla-pascua {
+    min-height: 15vh;
+    z-index: 10;
+    background: white;
+}
+
+
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Para que las imágenes cubran todo el área */
+  opacity: 0; /* Oculta todas las imágenes por defecto */
+  transition: opacity 1.5s ease-in-out; /* Aplica la transición fade */
+}
+
+
+
+.header-content {
+  position: relative;
+  z-index: 1; /* Asegura que el contenido esté por encima de las imágenes */
+  /* Añade estilos para tu contenido (color de texto, padding, etc.) */
+  color: white;
+  text-align: center;
+  padding-top: 150px;
+}
+
+
+
+/* SECCION MAIN*/
+
+
+
+section {
+    margin-top: 200px;
+}
+
+/*SECCION VIAJES*/
+
+/* --- SECCIÓN PRÓXIMOS VIAJES (GRID) --- */
+.destinos-container {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titulo-seccion { text-align: center; font-size: 2.2rem; color: var(--primary); }
+.subtitulo-seccion { text-align: center; color: var(--text-grey); margin-bottom: 50px; }
+
+/* RESPONSIVE GRID */
+/* 1. EL CONTENEDOR PADRE: Importante para alinear las filas */
+/* =======================================================
+   1. SECCIÓN PRESENTACIÓN (COMPACTA)
+   ======================================================= */
+.presentacion-profesional {
+    padding: 10px 20px 30px 20px;
+    background-color: #fdfdfd;
+    text-align: center;
+    margin-top: 0;
+}
+
+.contenedor-presentacion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.subtitulo-premium {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #a67c52;
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+    padding-top: 5px;
+}
+
+.titulo-principal {
+    font-size: 2.5rem;
+    color: #1a252f;
+    font-family: 'Georgia', serif;
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+.divisor-decorativo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.divisor-decorativo .linea { height: 1px; width: 60px; background-color: #a67c52; }
+.divisor-decorativo .punto { width: 6px; height: 6px; background-color: #a67c52; border-radius: 50%; }
+
+.cuerpo-texto p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #4a4a4a;
+    font-style: italic;
+}
+
+/* =======================================================
+   2. GRID DE VIAJES (ESCRITORIO - 3 COLUMNAS)
+   ======================================================= */
+.grid-viajes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en PC */
+    gap: 25px;
+    padding: 20px;
+    align-items: stretch;
+}
+
+.card-viaje {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Obliga a todas a medir lo mismo */
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.img-container {
+    height: 250px; /* Altura fija para las fotos */
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.img-container img:hover {
+    transform: scale(1.03);
+}
+
+.card-content {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fffaf2;
+}
+
+/* =======================================================
+   3. MEDIA QUERY (MÓVIL - TODO A 1 COLUMNA)
+   ======================================================= */
+@media (max-width: 768px) {
+    /* La presentación se ajusta */
+    .titulo-principal {
+        font-size: 1.8rem;
+    }
+
+    /* El grid de viajes pasa a 1 sola columna */
+    .grid-viajes {
+        grid-template-columns: 1fr !important; 
+        padding: 10px;
+    }
+
+    .card-viaje {
+        margin-bottom: 20px;
+    }
+}
+/* 5. EL BOTÓN */
+.btn-card {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #424fc2;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: auto; /* Empuja el botón al fondo siempre */
+    transition: transform .8s ease;
+}
+
+.btn-card:hover {
+    background-color: #a32e2e;
+    transition: background-color 0.3s ease;
+    transform: scale(1.05);
+    
+}
+
+
+
+
+/* Bloques de información */
+
+
+.bloque-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 60px;
+    padding: 20px;
+    border: 2px solid var(--azul-marroqui);
+    border-radius: 10px;
+}
+
+.bloque-info.inverso {
+    flex-direction: row-reverse;
+}
+
+.bloque-info .texto {
+    flex: 1;
+    min-width: 300px;
+}
+
+.bloque-info h2 {
+    color: var(--terracota);
+    font-size: 2rem;
+    border-bottom: 3px solid var(--azul-marroqui);
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.bloque-info p {
+    font-size: 1.3rem;
+    text-align: justify;
+    line-height: 1.8;
+    color: var(--marron-oscuro);
+}
+
+/* Galería de fotos pequeña */
+.galeria-fotos {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.galeria-fotos img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 4px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.galeria-fotos img:hover {
+    transform: scale(1.03);
+}
+
+/* Bloque Especial Merzouga (Desierto) */
+.bloque-desierto {
+    background-color: var(--terracota);
+    color: white;
+    padding: 50px;
+    border-radius: 15px;
+    margin-bottom: 60px;
+    text-align: center;
+    border: 2px solid var(--azul-marroqui);
+}
+
+.bloque-desierto h2 {
+    color: var(--arena);
+    font-size: 2.5rem;
+
+}
+
+
+
+.contenido-desierto p {
+    text-align: justify;
+    font-size: 1.6rem ;
+}
+
+.contenido-desierto h2 {
+    margin-bottom: 30px;
+}
+
+.fotos-desierto img {
+    width: 100%;
+    max-height: 600px ;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 25px;
+    border: 10px solid rgba(255,255,255,0.2);
+}
+
+
+/* OPCIONAL: Para que el contenido no se pegue a los bordes y sea legible */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Si quieres que los bloques tengan un fondo ligero para leer mejor */
+.bloque-info, .bloque-desierto {
+    background: rgba(0, 0, 0, 0.4); /* Fondo negro muy transparente */
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    backdrop-filter: blur(5px); /* Efecto cristal (opcional) */
+}
+
+
+
+
+/* Bloques de información */
+.bloque-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.bloque-info.inverso {
+    flex-direction: row-reverse;
+}
+
+.bloque-info .texto {
+    flex: 1;
+    min-width: 300px;
+}
+
+.bloque-info h2 {
+    color: var(--senegal-verde);
+    font-size: 2rem;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* Detalle decorativo debajo del título (colores bandera) */
+.bloque-info h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 4px;
+    background:red ;
+}
+
+.bloque-info p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+
+
+
+
+
+
+
+/* Ajuste para móviles: se pone una debajo de otra */
+@media (max-width: 768px) {
+    .card-viaje {
+        flex-direction: column;
+        height: auto; /* En móvil la altura es automática */
+        min-height: auto;
+    }
+
+    /*.img-container, .card-content {
+        flex: 0 0 100%; /* En móvil ocupan todo el ancho */
+    
+        .card-content {
+        flex: 0 0 auto;        /* Deja de forzar el 30% */
+        width: 100%;
+        padding: 20px;         /* Un poco menos de espacio para que quepa bien */
+        display: block;        /* Asegura que se comporte como un bloque normal */
+    }
+
+      .card-content p {
+        margin-bottom: 20px;
+    }
+
+    .img-container {
+        flex: 0 0 auto;        /* Deja de forzar el 70% */
+        height: 300px;         /* Altura fija para la foto en móvil */
+        width: 100%;
+       
+    }
+
+    @media (max-width: 768px) {
+    /* 1. Alineación de la barra superior */
+   
+}
+
+
+@media (max-width: 768px) {
+    /* 1. La barra principal: Definimos una altura clara */
+    .menu {
+        width: 100% !important;
+        margin: 0 auto;
+        max-width: 100% !important;
+        height: 90px; /* Aumentamos un poco la altura para iconos más grandes */
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* Alineación vertical central de todo */
+        padding: 0 15px;
+        background-color: #2d3436;
+        position: fixed;
+        top: 0;
+       
+        z-index: 2000;
+        margin: 0 !important;
+    }
+
+    /* 2. Icono del Arquero (Logo) */
+    .logo {
+        display: flex;
+        align-items: center;
+        height: 100%; /* Ocupa toda la altura para centrar el contenido */
+    }
+
+    .logo1 {
+        width: 70px !important; /* Arquero más visible */
+        height: 70px !important;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    /* 3. Icono Hamburguesa (Más grande y alineado) */
+    .menu label {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 60px;
+        cursor: pointer;
+        z-index: 3000;
+         position:absolute;
+        top: 0;
+        right: 10px;
+    }
+
+    .menu label img {
+        width: 60px; /* Icono de menú más grande */
+        height: auto;
+        filter: brightness(0) invert(1);
+       
+    }
+
+    /* 4. LOS ENLACES: Horizontales y centrados en la misma línea */
+    .nav-links {
+        display: none; /* Escondido por defecto */
+        flex-direction: row !important; /* En línea */
+        align-items: center;
+        justify-content: center;
+        
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%); /* Centrado horizontal exacto */
+        
+        height: 90px; /* Misma altura que la barra para alinear con el arquero */
+        width: auto;
+        gap: 15px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background: none; /* Sin fondo para que se vea el de la barra */
+        z-index: 2500;
+    }
+
+    /* Lógica de activación */
+    #menu:checked ~ nav .nav-links {
+        display: flex !important;
+    }
+
+    /* 5. Estilo de los textos */
+    .nav-links li a {
+        font-size: 13px;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+        white-space: nowrap;
+        text-decoration: none;
+        /* Asegura que el texto esté en la misma línea visual que los iconos */
+        line-height: 20px; 
+    }
+
+    /* 6. Ocultar el logo solo cuando el menú está abierto (opcional, para que no choquen) */
+    #menu:checked ~ .logo {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    /* 1. Bajamos el bloque completo del slideshow */
+    .header-slideshow {
+        margin-top: 70px; /* Esto baja el slideshow lo justo para que no lo tape el menú */
+        height: 60vh;    /* Altura específica para el móvil (más corta que en PC) */
+         position: relative;
+    }
+
+    /* 2. Ajustamos las imágenes para que se adapten a la nueva altura */
+    .header-slideshow .slide {
+        height: 100% !important;
+        top: 0 !important; /* Reseteamos cualquier posición anterior */
+    }
+
+    /* 3. Ajustamos el contenido (título) dentro del slideshow */
+    .header-content {
+        padding-top: 50px; /* Bajamos el título para que esté centrado en la nueva altura */
+    }
+    
+    .header-content h1 {
+        font-size: 1.8rem; /* Tamaño de letra más cómodo para móvil */
+    }
+}
+
+@media (max-width: 768px) {
+    /* ... (tu código anterior) ... */
+
+    /* OCULTAR EL LOGO DEL ARQUERO CUANDO EL MENÚ ESTÉ ABIERTO */
+    /* Buscamos el contenedor .menu que TENGA un checkbox marcado */
+    .menu:has(#menu:checked) .logo {
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+    }
+
+    /* Nos aseguramos de que el icono de hamburguesa SIGA visible */
+    .menu label {
+        display: flex !important;
+        z-index: 3000; /* Siempre por encima */
+    }
+}
+}
+
+
+
+/* Estilo común para los bloques de contenido */
+.bloque-info, .bloque-desierto {
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 1000px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Fondo de página SENEGAL */
+
+
+body.senegal-color {
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                      url('../imagenes/imagenes/IMG-20251128-WA0153.jpg');
+}
+/* Cuadros de Senegal */
+body.senegal-color .bloque-info, 
+body.senegal-color .bloque-desierto {
+    background-color: #fff; /* Crema */
+    color: black; /* Marrón */
+}
+body.senegal-color h2 { color:black ; }
+body.senegal-color .bloque-info p {
+    color: #000;
+}
+
+
+
+/*MARRUECOS COLOR*/
+
+/* Fondo de página Marruecos */
+body.marruecos-color {
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                      url('../imagenes/imagenes/IMG-20220417-WA0019.jpg');
+}
+/* Cuadros de Marruecos */
+body.marruecos-color .bloque-info, 
+body.marruecos-color .bloque-desierto {
+    background-color: #fff; /* Arena clara */
+    color:#000;
+}
+body.marruecos-color h2 { color: #d84315; }
+body.marruecos-color .bloque-info p {
+    color: #000;
+}
+
+
+
+
+
+/*ISLA PASCUA COLOR*/
+
+/* Fondo de página Isla de Pascua */
+body.islapascua-color {
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                      url('../imagenes/imagenes/rapa-nui-2411800_1280.jpg');
+}
+/* Cuadros de Isla de Pascua */
+body.islapascua-color .bloque-info, 
+body.islapascua-color .bloque-desierto {
+    background-color: #fff; /* Gris piedra */
+    color:black;
+}
+body.islapascua-color h2 { color: #5d4037; }
+body.islapascua-color .bloque-info p {
+    color: #000;
+}
+
+
+
+/*Nueva zelanda color*/
+
+
+/* Fondo de página Nueva Zelanda */
+body.nuevazelanda-color {
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                      url('../imagenes/imagenes/amanecer12.jpg');
+}
+/* Cuadros de Nueva Zelanda */
+body.nuevazelanda-color .bloque-info, 
+body.nuevazelanda-color .bloque-desierto {
+    background-color:#fff; /* Verde muy suave */
+    color: black;
+}
+body.nuevazelanda-color h2 { color:black; }
+
+body.nuevazalanda-color .bloque-info p {
+    color: #000;
+}
+
+
+
+/*CANARIAS*/
+
+
+/* Fondo de página Canarias */
+body.canarias-color {
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                      url('../imagenes/imagenes/IMG-20211228-WA0060\(1\).jpg');
+}
+
+/* Cuadros de Canarias */
+body.canarias-color .bloque-info, 
+body.canarias-color .bloque-desierto {
+    background-color: #fff ; /* Blanco arena suave */
+    color: black; /* Gris oceánico oscuro para el texto */
+    border-top: 5px solid black; /* Detalle azul mar arriba */
+}
+
+body.canarias-color h2 { 
+    color: black; /* Azul brillante del Atlántico */
+}
+
+body.canarias-color .bloque-info p {
+    color: black;
+}
+
+
+/*PATAGONIA COLOR*/
+
+
+/* Fondo de página Patagonia */
+body.patagonia-color {
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                      url('../imagenes/imagenes/chalten2.jpg');
+}
+/* Cuadros de Patagonia */
+body.patagonia-color .bloque-info, 
+body.patagonia-color .bloque-desierto {
+    background-color: #fff; /* Azul muy pálido */
+    color: black;
+}
+body.patagonia-color h2 { color:black; }
+
+body.patagonia-color .bloque-info p {
+    color: black;
+}
+
+
+
+
+/*Index-color*/
+
+/* Fondo de página Marruecos */
+body.index-color {
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                      url('../imagenes/imagenes/Perito_Moreno_Glacier_2023.jpg');
+}
+/* Cuadros de Marruecos */
+body.index-color .bloque-info, 
+body.index-color .bloque-desierto {
+    background-color: rgba(255, 235, 204, 0.95); /* Arena clara */
+    color: #4e342e;
+}
+body.index-color h2 { color: #d84315; }
+
+
+
+/* presentacion*/
+/* --- SECCIÓN PRESENTACIÓN PREMIUM --- */
+.presentacion-profesional {
+    padding: 40px 20px;
+    background-color: #fdfdfd; /* Un blanco casi puro para limpieza total */
+    text-align: center;
+   
+}
+
+.contenedor-presentacion {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.subtitulo-premium {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #a67c52; /* Color dorado/ocre elegante */
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.titulo-principal {
+    font-size: 3.2rem;
+    color: #1a252f; /* Azul marino muy oscuro */
+    font-family: 'Georgia', serif;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+/* Divisor elegante entre título y texto */
+.divisor-decorativo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.divisor-decorativo .linea {
+    height: 1px;
+    width: 60px;
+    background-color: #a67c52;
+}
+
+.divisor-decorativo .punto {
+    width: 6px;
+    height: 6px;
+    background-color: #a67c52;
+    border-radius: 50%;
+}
+
+.cuerpo-texto p {
+    font-size: 1.25rem;
+    line-height: 2;
+    
+    color: black;
+    font-style: italic; /* El estilo de cita que pediste en el texto */
+    font-family: 'Times New Roman', serif;
+}
+
+.cuerpo-texto strong {
+    color: #1a252f;
+    font-style: normal;
+}
+
+/* Responsivo para tablets y móviles */
+@media (max-width: 768px) {
+    .presentacion-profesional {
+        padding: 110px 15px;
+    }
+    .titulo-principal {
+        font-size: 2.2rem;
+    }
+    .subtitulo-premium {
+        font-size: 0.7rem;
+        letter-spacing: 3px;
+    }
+    .cuerpo-texto p {
+        font-size: 1.1rem;
+    }
+}
+
+
+/*Rutilizable  seccion informancion*/
+
+/* =======================================================
+   ESTRUCTURA MAESTRA DE VIAJES (Sagitario Style)
+   ======================================================= */
+
+
+
+
+/* 1. Contenedor Principal */
+.detalle-viaje {
+    padding: 80px 20px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efecto elegante al hacer scroll */
+    color: white;
+    position: relative;
+}
+
+.contenedor-itinerario {
+    max-width: 1000px;
+    margin: 0 auto;
+   
+}
+
+/* 2. Encabezado */
+.itinerario-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: #000000d6;
+}
+
+.emoji-principal { font-size: 3rem; display: block; margin-bottom: 10px; }
+
+.itinerario-header h2 {
+    font-size: 2.8rem;
+    margin: 10px 0;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+}
+
+.tagline {
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+/* 3. Grid de Tarjetas (2x2) */
+.grid-detalles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: stretch;
+}
+
+/* 4. Estilo de Tarjetas (Glassmorphism) */
+.tarjeta-info {
+    background: rgba(255, 255, 255, 0.363); /* Transparencia blanca */
+    backdrop-filter: blur(12px); /* Desenfoque de fondo */
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.tarjeta-info h3 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* 5. Listas y Rutas */
+.lista-maestra {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-maestra li {
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+.linea-tiempo {
+    border-left: 1px dashed rgba(255, 255, 255, 0.4);
+    padding-left: 20px;
+}
+
+.punto-ruta {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+/* 6. Bloque de Precio y Botón */
+.tarjeta-destacada {
+    text-align: center;
+    justify-content: center;
+}
+
+.precio-box .monto {
+    font-size: 3.5rem;
+    font-weight: bold;
+    display: block;
+}
+
+.btn-reserva {
+    display: inline-block;
+    padding: 18px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    text-transform: uppercase;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.btn-reserva:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* 7. RESPONSIVO: En móvil una sola columna */
+@media (max-width: 800px) {
+    .grid-detalles { grid-template-columns: 1fr; }
+    .itinerario-header h2 { font-size: 2rem; }
+}
+
+/* =======================================================
+   TEMAS POR PAÍS (Solo cambias la foto y el color)
+   ======================================================= */
+
+/* --- MARRUECOS --- */
+.marruecos-tema { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)); 
+    z-index: 1;
+
+}
+.marruecos-tema h2, .marruecos-tema h3 { color: #ffcc80; }
+.marruecos-tema .btn-reserva { background: #b04b2a; color: white; }
+
+/* --- SENEGAL --- */
+.senegal-tema { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+padding: 30px;  }
+.senegal-tema h2, .senegal-tema h3 { color: #f1c40f; }
+.senegal-tema .btn-reserva { background: #27ae60; color: white; }
+
+/* --- CANARIAS --- */
+.canarias-tema { background-image: linear-gradient(rgba(0,0,0,0.), rgba(0,0,0,0.1)); }
+.canarias-tema h2, .canarias-tema h3 { color: #0c0e0f; }
+.canarias-tema .btn-reserva { background: #e67e22; color: white; }
+
+/* --- NUEVA ZELANDA --- */
+.nuevazelanda-tema { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../imagenes/imagenes/mountains-4616534_1280(1).jpg'); }
+.nuevazelanda-tema h2, .nuevazelanda-tema h3 { color: #a7ffeb; }
+.nuevazelanda-tema .btn-reserva { background: #1b5e20; color: white; }
+
+
+/* Seccion Contacto*/
+
+/* --- SOLO AÑADE ESTO AL FINAL DE TU CSS --- */
+
+/* 1. Fondo para la página de contacto */
+body.contacto-color {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                      url('../imagenes/imagenes/fotos fitz chuchus.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* 2. Centrar la tarjeta en mitad de la pantalla */
+
+/* --- ESTILO FINAL PÁGINA CONTACTO --- */
+
+/* Contenedor que centra todo en pantalla */
+.contacto-full-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 100px 20px 50px 20px; /* Espacio para el header fijo */
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* La tarjeta compacta */
+.card-contacto-compacta {
+    position: absolute;
+    top: -10%;
+    left: -200px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 25px;
+    max-width: 450px; /* Tamaño ideal de tarjeta de contacto */
+    width: 100%;
+    text-align: center;
+    color: white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+/* El logo: AQUÍ CONTROLAMOS EL TAMAÑO */
+.logo-contacto-img {
+    width: 80px; /* Tamaño pequeño y elegante */
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+}
+
+.card-contacto-compacta h1 {
+    font-family: 'Georgia', serif;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #ffcc80;
+}
+
+.mensaje-marca p {
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+/* Separador sutil */
+.separador-elegante {
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+    width: 60%;
+    margin: 0 auto 25px auto;
+}
+
+.card-contacto-compacta h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.instruccion {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Botón WhatsApp */
+.btn-wa-final {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #25d366;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 50px;
+    margin: 25px 0 15px 0;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-wa-final:hover {
+    background-color: #1ebe57;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+}
+
+.btn-wa-final img {
+    width: 22px;
+}
+
+.pie-contacto {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+/* Ajuste móvil */
+@media (max-width: 480px) {
+    .card-contacto-compacta {
+        padding: 30px 20px;
+    }
+    .card-contacto-compacta h1 {
+        font-size: 1.8rem;
+    }
+}
+
+
+
+/*SECCION FOOTER*/
+
+
+footer {
+ 
+    grid-area: footer1;
+}
+
+/* --- FOOTER PRINCIPAL --- */
+footer {
+    grid-area: footer1; /* Se alinea con tu grid de body */
+    background-color: #2d2d2d; /* Gris muy oscuro para contraste */
+    color: #fffaf0; /* Color crema de tu paleta */
+    padding-top: 60px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    /* Tres columnas que se adaptan solas */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 0 5%;
+}
+
+.footer-col h3 {
+    color: #c26142; /* Tu color Terracota */
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-logo {
+    width: 60px;
+    height: 60px;
+    filter: brightness(0) invert(1); /* Hace el logo blanco para el fondo oscuro */
+    margin-bottom: 20px;
+}
+
+.footer-tagline {
+    line-height: 1.6;
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links li a {
+    text-decoration: none;
+    color: #fffaf0;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Efecto hover en los enlaces del footer */
+.footer-links li a:hover {
+    color: #c26142;
+    transform: translateX(10px); /* Desplazamiento suave a la derecha */
+}
+
+/* Barra de Copyright */
+.footer-bottom {
+    margin-top: 50px;
+    padding: 25px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* --- RESPONSIVE FOOTER --- */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+        text-align: center;
+    }
+
+    .footer-links li a:hover {
+        transform: none; /* Quitamos el desplazamiento en móvil */
+    }
+}
+
+
+
+
+
+

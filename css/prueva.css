@@ -1,0 +1,450 @@
+/* --- ESTILOS SECCIÓN DETALLE VIAJE REUTILIZABLE --- */
+.detalle-viaje {
+    padding: 40px 20px;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                      url('../imagenes/imagenes/IMG-20220417-WA0019.jpg'); /* Cambiar por mapa/foto */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+}
+
+.contenedor-itinerario {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.grid-detalles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.tarjeta-info {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-info h3 {
+    color: #ffcc80;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+/* Listas de Detalles */
+.lista-check {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-check li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.lista-check li::before {
+    content: "✔️";
+    margin-right: 8px;
+    font-size: 0.8rem;
+}
+
+/* Tarjeta de Precio y Botón de Contacto */
+.tarjeta-precio-contacto {
+    background: rgba(176, 75, 42, 0.9) !important; /* Color terracota destacado */
+    text-align: center;
+    justify-content: center;
+}
+
+.precio-box .monto {
+    font-size: 3rem;
+    font-weight: bold;
+    display: block;
+}
+
+.btn-reserva {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #ffffff;
+    color: #b04b2a;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-reserva:hover {
+    background-color: #2c3e50;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Responsivo */
+@media (max-width: 800px) {
+    .grid-detalles {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/*nueva zelanda*/
+/* --- TEMA NUEVA ZELANDA --- */
+.nz-theme {
+    background-image: linear-gradient(rgba(0, 30, 20, 0.75), rgba(0, 30, 20, 0.75)), 
+                      url('../imagenes/imagenes/mountains-4616534_1280(1).jpg'); /* Tu foto de NZ */
+}
+
+.nz-theme h2 {
+    color: #a7ffeb !important; /* Un verde agua brillante */
+}
+
+.nz-theme .tarjeta-info h3 {
+    color: #a7ffeb;
+    border-bottom: 1px solid rgba(167, 255, 235, 0.2);
+}
+
+.nz-accent {
+    background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%) !important; /* Verdes bosque */
+    border: none !important;
+}
+
+/* Estilos para la tabla de precios dentro de la tarjeta */
+.tabla-precios {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.precio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.2);
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.precio-item strong {
+    font-size: 1.4rem;
+}
+
+.suplemento {
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.nota-voluntario {
+    margin-top: 15px;
+    background: rgba(255, 193, 7, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    border-left: 4px solid #ffc107;
+}
+
+.info-fechas p {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.compacta li {
+    font-size: 0.85rem !important;
+    margin-bottom: 5px !important;
+}
+
+.no-incluye-texto {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 10px;
+    opacity: 0.8;
+}
+
+/* Botón específico NZ */
+.nz-theme .btn-reserva {
+    background-color: #a7ffeb;
+    color: #1b5e20;
+}
+
+.nz-theme .btn-reserva:hover {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.divisor-mini {
+    border: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin: 15px 0;
+}
+
+/*Senegal*/
+
+
+/* --- TEMA SENEGAL (TERANGA) --- */
+.senegal-theme {
+    background-image: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), 
+                      url('../imagenes/imagenes/IMG-20251122-WA0026.jpg'); /* Tu foto del Delta */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.senegal-theme h2 {
+    color: #f1c40f !important; /* Amarillo Teranga */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.senegal-theme .tarjeta-info h3 {
+    color: #f1c40f;
+    border-bottom: 1px solid rgba(241, 196, 15, 0.3);
+}
+
+.senegal-accent {
+    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%) !important; /* Tonos tierra/naranja */
+    border: none !important;
+}
+
+.senegal-theme .btn-reserva {
+    background-color: #f1c40f;
+    color: #2c3e50;
+    transition: transform 0.3s;
+}
+
+.senegal-theme .btn-reserva:hover {
+    background-color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* Ajustes para la lista de Senegal */
+.compacta li {
+    font-size: 0.9rem;
+    margin-bottom: 6px !important;
+}
+
+.no-incluye-texto {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    margin: 15px 0;
+    text-align: left;
+    font-size: 0.8rem;
+    line-height: 1.3;
+}
+
+.emoji-top {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+
+/*Canarias*/
+
+/* --- TEMA CANARIAS (FORTUNATAS) --- */
+.canarias-theme {
+    background-image: linear-gradient(rgba(20, 40, 60, 0.75), rgba(20, 40, 60, 0.75)), 
+                      url('../imagenes/imagenes/IMG-20211227-WA0076.jpg'); /* Tu foto del Teide */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.canarias-theme h2 {
+    color: #3498db !important; /* Azul océano */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.canarias-theme .tarjeta-info h3 {
+    color: #3498db;
+    border-bottom: 1px solid rgba(52, 152, 219, 0.3);
+}
+
+.canarias-accent {
+    background: linear-gradient(135deg, #003366 0%, #3498db 100%) !important; /* Degradado azul profundo */
+    border: none !important;
+}
+
+/* Botón específico Canarias */
+.canarias-theme .btn-reserva {
+    background-color: #e67e22; /* Naranja volcánico */
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+}
+
+.canarias-theme .btn-reserva:hover {
+    background-color: #ffffff;
+    color: #2c3e50;
+    transform: scale(1.05);
+}
+
+/* Ajustes de la línea de tiempo para Canarias */
+.canarias-theme .linea-tiempo {
+    border-left: 1px dashed #3498db;
+}
+
+.canarias-theme .punto-ruta::before {
+    content: "🌀"; /* Un espiral volcánico o gota de agua */
+    font-size: 0.8rem;
+    left: -24px;
+}
+
+/*ESQUELETO*/
+
+/* =======================================================
+   ESTRUCTURA MAESTRA DE VIAJES (Sagitario Style)
+   ======================================================= */
+
+/* 1. Contenedor Principal */
+.detalle-viaje {
+    padding: 80px 20px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efecto elegante al hacer scroll */
+    color: white;
+    position: relative;
+}
+
+.contenedor-itinerario {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* 2. Encabezado */
+.itinerario-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.emoji-principal { font-size: 3rem; display: block; margin-bottom: 10px; }
+
+.itinerario-header h2 {
+    font-size: 2.8rem;
+    margin: 10px 0;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+/* 3. Grid de Tarjetas (2x2) */
+.grid-detalles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: stretch;
+}
+
+/* 4. Estilo de Tarjetas (Glassmorphism) */
+.tarjeta-info {
+    background: rgba(255, 255, 255, 0.12); /* Transparencia blanca */
+    backdrop-filter: blur(12px); /* Desenfoque de fondo */
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.tarjeta-info h3 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* 5. Listas y Rutas */
+.lista-maestra {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-maestra li {
+    margin-bottom: 12px;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.linea-tiempo {
+    border-left: 1px dashed rgba(255, 255, 255, 0.4);
+    padding-left: 20px;
+}
+
+.punto-ruta {
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+/* 6. Bloque de Precio y Botón */
+.tarjeta-destacada {
+    text-align: center;
+    justify-content: center;
+}
+
+.precio-box .monto {
+    font-size: 3.5rem;
+    font-weight: bold;
+    display: block;
+}
+
+.btn-reserva {
+    display: inline-block;
+    padding: 18px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    text-transform: uppercase;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.btn-reserva:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* 7. RESPONSIVO: En móvil una sola columna */
+@media (max-width: 800px) {
+    .grid-detalles { grid-template-columns: 1fr; }
+    .itinerario-header h2 { font-size: 2rem; }
+}
+
+/* =======================================================
+   TEMAS POR PAÍS (Solo cambias la foto y el color)
+   ======================================================= */
+
+/* --- MARRUECOS --- */
+.marruecos-tema { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)); }
+.marruecos-tema h2, .marruecos-tema h3 { color: #ffcc80; }
+.marruecos-tema .btn-reserva { background: #b04b2a; color: white; }
+
+/* --- SENEGAL --- */
+.senegal-tema { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../imagenes/imagenes/IMG-20251122-WA0026.jpg'); }
+.senegal-tema h2, .senegal-tema h3 { color: #f1c40f; }
+.senegal-tema .btn-reserva { background: #27ae60; color: white; }
+
+/* --- CANARIAS --- */
+.canarias-tema { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../imagenes/imagenes/IMG-20211227-WA0076.jpg'); }
+.canarias-tema h2, .canarias-tema h3 { color: #3498db; }
+.canarias-tema .btn-reserva { background: #e67e22; color: white; }
+
+/* --- NUEVA ZELANDA --- */
+.nuevazelanda-tema { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../imagenes/imagenes/mountains-4616534_1280(1).jpg'); }
+.nuevazelanda-tema h2, .nuevazelanda-tema h3 { color: #a7ffeb; }
+.nuevazelanda-tema .btn-reserva { background: #1b5e20; color: white; }
